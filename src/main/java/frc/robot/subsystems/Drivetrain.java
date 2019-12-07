@@ -24,6 +24,7 @@ public class Drivetrain extends Subsystem {
   public Drivetrain(){
     leftWheels = new WPI_TalonSRX(RobotMap.leftWheelsMotor);
     rightWheels = new WPI_TalonSRX(RobotMap.rightWheelsMotor);
+    leftWheels.setInverted(true);
   }
 
   @Override

@@ -11,6 +11,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.RobotMap;
+import frc.robot.commands.MoveLift;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -26,13 +27,22 @@ public class OI {
   // Button button = new JoystickButton(stick, buttonNumber);
   public Joystick leftStick;
   public Joystick rightStick;
-  public JoystickButton buttonOne;
+  public JoystickButton button0, button1, button2;
 
   //constructor  
   OI(){
+
     leftStick = new Joystick(RobotMap.leftStickPort);
     rightStick = new Joystick(RobotMap.rightStickPort);
-    buttonOne = new JoystickButton(leftStick, 0);
+    
+    button0 = new JoystickButton(leftStick, 0);
+    button1 = new JoystickButton(leftStick, 1);
+    button2 = new JoystickButton(leftStick, 2);
+
+    button0.whenPressed(new MoveLift(0));
+    button1.whenPressed(new MoveLift(1));
+    button2.whenPressed(new MoveLift(2));
+
   }
 
   // There are a few additional built in buttons you can use. Additionally,
